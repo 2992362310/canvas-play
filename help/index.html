@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<p>要使用的图像：</p>
+<img id="tulip" src="./img/bridge.jpg" alt="The Tulip" />
+
+<p>画布：</p>
+<input type="button" onclick="drawImage()">加载图片</button>
+<input type="button" onclick="drawRectangle()">加载图片</button>
+<canvas id="myCanvas" width="500" height="300" style="border:1px solid #d3d3d3;background:#ffffff;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+    function draw() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("tulip");
+        ctx.drawImage(img, 10, 10);
+    }
+
+    let startPoint = {};
+
+</script>
+
+</html>
