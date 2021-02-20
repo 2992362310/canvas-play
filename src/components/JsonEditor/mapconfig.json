@@ -1,0 +1,381 @@
+{
+    "serverURL": "http://data.marsgis.cn",
+
+    "map3d": {
+        "homeButton": false,
+        "sceneModePicker": false,
+        "navigationHelpButton": false,
+        "infoBox": true,
+        "vrButton": false,
+        "fullscreenButton": false,
+        "animation": false,
+        "timeline": false,
+        "geocoder": false,
+        "baseLayerPicker": false,
+        "showRenderLoopErrors": true,
+        "center": { "y": 29.38, "x": 106.445, "z": 18000, "pitch": -45 },
+        "minzoom": 1000,
+        "maxzoom": 5000000,
+        "style": { "atmosphere": true, "lighting": false, "fog": false, "testTerrain": false },
+        "contextmenu": true,
+        "mouseZoom": false,
+        "location": {
+            "fps": false,
+            "format": "<div>经度:{x}</div> <div>纬度:{y}</div> <div>海拔：{z}米</div> <div>层级：{level}</div> <div>方向：{heading}度</div> <div>俯仰角：{pitch}度</div> <div>视高：{height}米</div><div style='float: right;'>&copy;2020 长江勘测规划设计研究院 &nbsp; &copy;2020 长江空间信息技术工程有限公司(武汉)</div>",
+            "crs": ""
+        },
+        "navigation": {
+            "legend": { "right": "50px", "bottom": "40px", "left": "auto" },
+            "compass": { "bottom": "100px", "right": "20px" }
+        },
+        "terrain": {
+            "url": "http://data.marsgis.cn/terrain",
+            "visible": true
+        },
+        "basemaps": [{
+            "name": "天地图电子",
+            "icon": "img/basemaps/tdt_vec.png",
+            "type": "group",
+            "layers": [
+                { "name": "底图", "type": "www_tdt", "layer": "vec_d", "key": ["9a54b78c22759bf1521ca4cba8bea124"] },
+                { "name": "注记", "type": "www_tdt", "layer": "vec_z", "key": ["9a54b78c22759bf1521ca4cba8bea124"] }
+            ]
+        }, {
+            "name": "天地图卫星",
+            "icon": "img/basemaps/tdt_img.png",
+            "type": "www_tdt",
+            "layer": "img_d",
+            "visible": true,
+            "key": [
+                "9a54b78c22759bf1521ca4cba8bea124"
+            ]
+        }, {
+            "name": "天地图地形",
+            "icon": "img/basemaps/tdt_ter.png",
+            "type": "group",
+            "layers": [
+                { "name": "底图", "type": "www_tdt", "layer": "ter_d", "key": ["9a54b78c22759bf1521ca4cba8bea124"] },
+                { "name": "注记", "type": "www_tdt", "layer": "ter_z", "key": ["9a54b78c22759bf1521ca4cba8bea124"] }
+            ]
+        }, {
+            "name": "高德电子",
+            "icon": "img/basemaps/google_vec.png",
+            "type": "www_gaode",
+            "crs": "gcj",
+            "layer": "vec"
+        }, {
+            "name": "高德卫星",
+            "icon": "img/basemaps/google_img.png",
+            "type": "www_gaode",
+            "crs": "wgs84",
+            "layer": "img_d",
+            "visible": false
+        }, {
+            "name": "Bing卫星",
+            "icon": "img/basemaps/google_ter.png",
+            "type": "www_bing",
+            "crs": "gcj",
+            "layer": "Aerial"
+        }, {
+            "name": "百度电子",
+            "icon": "img/basemaps/bd-vec.png",
+            "type": "www_baidu",
+            "layer": "vec"
+        }, {
+            "name": "百度卫星",
+            "icon": "img/basemaps/bd-img.png",
+            "type": "www_baidu",
+            "layer": "img_d",
+            "visible": false
+        }],
+        "operationallayers": [{
+                "id": 30,
+                "name": "管网",
+                "type": "group"
+            }, {
+                "pid": 30,
+                "type": "geojson",
+                "name": "雨水管网井",
+                "url": "statics/data/geojson/well_pipe_new.json",
+                "clampToGround": true,
+                "layerType": "volume",
+                "parameters": {
+                    "maxFeatures": 500
+                },
+                "minimumLevel": 8,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#4169E1",
+                        "outline": true
+                    }
+                }
+            },
+            {
+                "pid": 30,
+                "type": "geojson",
+                "name": "雨水管网",
+                "visible": false,
+                "url": "statics/data/geojson/rain_pipe_new.json",
+                "clampToGround": true,
+                "layerType": "volume",
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#6495ED",
+                        "img": "123"
+                    }
+                }
+            },
+            {
+                "pid": 30,
+                "type": "geojson",
+                "name": "污水管网",
+                "visible": true,
+                "url": "statics/data/geojson/sewage_pipe_new.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#87CEFA"
+                    }
+                }
+            },
+            {
+                "id": 40,
+                "name": "井口",
+                "type": "group"
+            },
+            {
+                "pid": 40,
+                "type": "geojson",
+                "name": "雨水口",
+                "url": "statics/data/geojson/rain_drain.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#5F9EA0",
+                        "extrudedPolygon": {
+                            "extrudedHeight": 20,
+                            "fillType": "color",
+                            "color": "#CD853F"
+                        }
+                    }
+                }
+            },
+            {
+                "pid": 40,
+                "type": "geojson",
+                "name": "雨水检查井",
+                "url": "statics/data/geojson/rain_ins_well.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#008B8B"
+                    }
+                }
+            },
+            {
+                "pid": 40,
+                "type": "geojson",
+                "name": "污水检查井",
+                "url": "statics/data/geojson/sewage_ins_well.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#00FF7F"
+                    }
+                }
+            }, {
+                "pid": 40,
+                "type": "geojson",
+                "name": "污水维修井",
+                "url": "statics/data/geojson/sewage_main_well.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#00FF00"
+                    }
+                }
+            },
+            {
+                "id": 50,
+                "name": "花园",
+                "type": "group"
+            }, {
+                "pid": 50,
+                "type": "geojson",
+                "name": "雨水花园",
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:garden_rain_surface&maxFeatures=50&outputFormat=application%2Fjson",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#0d3685",
+                        "outlineColor": "#0d3685",
+                        "opacity": 0.8,
+                        "clampToGround": true
+                    }
+                },
+                "flyTo": true
+            }, {
+                "pid": 50,
+                "type": "geojson",
+                "name": "雨水花园排水管",
+                "url": "/statics/data/geojson/gar_rain_drain.json",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#FF7F50"
+                    }
+                },
+                "flyTo": true
+            },
+            {
+                "id": 60,
+                "name": "基础设施",
+                "type": "group"
+            }, {
+                "pid": 60,
+                "type": "geojson",
+                "name": "新建化粪池",
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:new_septic_tank&maxFeatures=50&outputFormat=application%2Fjson",
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#0d3685",
+                        "outlineColor": "#0d3685",
+                        "opacity": 0.8
+                    }
+                },
+                "flyTo": true
+            }, {
+                "id": 10,
+                "name": "基础数据",
+                "type": "group"
+            },
+            {
+                "pid": 10,
+                "type": "geojson",
+                "name": "DIM_SYMB",
+                "visible": false,
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:dim_symb&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "fill": true,
+                        "fillType": "color",
+                        "color": "#00BFFF",
+                        "opacity": 1
+                    }
+                }
+            },
+            {
+                "pid": 10,
+                "type": "geojson",
+                "name": "DIM_SYMB_点",
+                "visible": false,
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:dim_symb_pt&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#00BFFF",
+                        "opacity": 1
+                    }
+                }
+            },
+            {
+                "pid": 10,
+                "type": "geojson",
+                "name": "流域边界",
+                "visible": true,
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:basin_boundary&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#0000FF",
+                        "opacity": 0.8
+                    }
+                }
+            },
+            {
+                "pid": 10,
+                "type": "geojson",
+                "name": "污水处理站",
+                "visible": true,
+                "url": "/geoserver/sw/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw:sewage_treatment_station&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "point": {
+                            "color": "#FFFF00",
+                            "pixelSize": 15,
+                            "scaleByDistance": true,
+                            "scaleByDistance_far": 50000,
+                            "scaleByDistance_farValue": 0.5,
+                            "scaleByDistance_near": 10000,
+                            "scaleByDistance_nearValue": 1,
+                            "distanceDisplayCondition": true,
+                            "distanceDisplayCondition_far": 80000,
+                            "distanceDisplayCondition_near": 0
+                        },
+                        "label": {
+                            "text": "{name}",
+                            "font_size": 30,
+                            "pixelOffset": [0, -10],
+                            "scaleByDistance": true,
+                            "scaleByDistance_far": 50000,
+                            "scaleByDistance_farValue": 0.5,
+                            "scaleByDistance_near": 10000,
+                            "scaleByDistance_nearValue": 1,
+                            "distanceDisplayCondition": true,
+                            "distanceDisplayCondition_far": 80000,
+                            "distanceDisplayCondition_near": 0
+                        }
+                    }
+                }
+            },
+            {
+                "pid": 10,
+                "type": "geojson",
+                "name": "河流",
+                "visible": true,
+                "url": "/geoserver/sw/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw:river&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "#00BFFF",
+                        "opacity": 1
+                    },
+                    "styleField": "id",
+                    "styleFieldOptions": {
+                        "0": { "width": 2 },
+                        "1": { "width": 4 }
+                    }
+                }
+            },
+            {
+                "id": 20,
+                "name": "红线",
+                "type": "group"
+            },
+            {
+                "pid": 20,
+                "type": "geojson",
+                "name": "用地红线",
+                "visible": true,
+                "url": "/geoserver/sw_spb/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sw_spb:land_red_line&maxFeatures=50&outputFormat=application%2Fjson",
+                "order": 200,
+                "clampToGround": true,
+                "symbol": {
+                    "styleOptions": {
+                        "color": "red",
+                        "lineType": "dash",
+                        "opacity": 1
+                    }
+                }
+            }
+        ]
+    }
+}
