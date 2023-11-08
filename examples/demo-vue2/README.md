@@ -1,4 +1,5 @@
 # canvas
+node 16
 
 ## Project setup
 ```
